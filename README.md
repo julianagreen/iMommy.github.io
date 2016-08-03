@@ -5,7 +5,7 @@ college chore planner
 #Project Name
 iMommy
 
-##Tecknologies
+##Technologies
 Web application for mobile. CSS, JavaScript, HTML, Googlee API.
 
 ##MVP Features
