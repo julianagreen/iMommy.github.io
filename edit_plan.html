@@ -17,36 +17,20 @@
         <hr>
 
 
-        <form action="demo_form.asp">
-          Description: <input type="text" name="description"><br>
-          Frequency: <input type="text" name="frequency"><br>
-          <input type="submit" value="Save">
+        <form class = "edit_cal" action="demo_form.asp">
+            Description: <input class = "selection" id = "title" type="text" name="description"><br>
+            Color: <input class = "selection" type="color" name="color"><br>
+            Frequency: <select id = "frequency" class = "selection" name="frequency">
+                <option value="daily">Daily</option>
+                <option value="weekly">Weekly</option>
+                <option value="monthly">Monthly</option>
+                <option value="yearly">Yearly</option>
+            </select><br>
+          <!-- Frequency: <input class = "selection" type="week" name="frequency"><br> -->
+          <input id = "save_button" type="submit" value="Save">
         </form>
 
 
-        <!-- <button class = "thin">Pay Bills</button>
-        <img class = "dots" src = "http://www.clker.com/cliparts/s/o/v/c/T/Y/red-dot-md.png"/>
-        <img class = "side_arrow" src = "http://iconshow.me/media/images/ui/ios7-icons/png/512/arrow-right-b.png"/>
-
-        <button class = "thin">Laundry</button>
-        <img class = "dots" src = "https://lh3.googleusercontent.com/-Jo9ZIl8YXkc/AAAAAAAAAAI/AAAAAAAAAAA/32gq4gK6qZI/photo.jpg"/>
-        <img class = "side_arrow" src = "http://iconshow.me/media/images/ui/ios7-icons/png/512/arrow-right-b.png"/>
-
-        <button class = "thin">Buy Groceries</button>
-        <img class = "dots" src = "http://worldartsme.com/images/colored-dot-clipart-1.jpg"/>
-        <img class = "side_arrow" src = "http://iconshow.me/media/images/ui/ios7-icons/png/512/arrow-right-b.png"/>
-
-        <button class = "thin">More Chores</button>
-        <img class = "dots" src = "http://www.clker.com/cliparts/N/m/G/q/D/0/green-dot-hi.png"/>
-        <img class = "side_arrow" src = "http://iconshow.me/media/images/ui/ios7-icons/png/512/arrow-right-b.png"/>
-
-        <button class = "thin">Do this</button>
-        <img class = "dots" src = "https://images-na.ssl-images-amazon.com/images/I/312mLJY%2BWUL._SY300_.jpg"/>
-        <img class = "side_arrow" src = "http://iconshow.me/media/images/ui/ios7-icons/png/512/arrow-right-b.png"/>
-
-        <button class = "thin">LALALALALAL</button>
-        <img class = "dots" src = "http://images.clipartpanda.com/dot-clipart-light-purple-dot-hi.png"/>
-        <img class = "side_arrow" src = "http://iconshow.me/media/images/ui/ios7-icons/png/512/arrow-right-b.png"/> -->
 
     </body>
 </html>
