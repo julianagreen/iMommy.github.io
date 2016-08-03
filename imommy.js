@@ -1,10 +1,26 @@
-// var client_id = "463068943114-9jvudf1fa16lljeuphr8oiak619elmmu.apps.googleusercontent.com";
 
-// var secret = "kXuZo1bFrcCv17bDilfRrZ5c";
+function renderButton() {
+  gapi.signin2.render('my-signin2', {
+    'scope': 'profile email https://www.googleapis.com/auth/calendar',
+    'width': 240,
+    'height': 50,
+    'longtitle': true,
+    'theme': 'dark',
+    'onsuccess': onSuccess,
+    'onfailure': onFailure
+  });
+}
 
-function onSignIn(user){
-  var profile = user.getBasicProfile();
+function onSuccess(googleUser) {
+  console.log('Logged in as: ' + googleUser.getBasicProfile().getName());
+  user = googleUser;
+  profile = googleUser.getBasicProfile;
   console.log(profile.getName());
+  console.log(profile.getId());
+}
+
+function onFailure(error) {
+  console.log(error);
 }
 
 // function appendResults(text) {
@@ -30,13 +46,17 @@ function onSignIn(user){
 // }
 
 // gapi.load('client', init);
-$(document).ready(function(){
-  fade_now();
-});
 
-function fade_now(){
-    var click_target = $("#tutorials");
-    $(click_target).click(function(){
-        $(this).fadeTo(0, .5);
-    });
-}
+
+
+
+// $(document).ready(function(){
+//   fade_now();
+// });
+
+// function fade_now(){
+//     var click_target = $("button");
+//     $(click_target).click(function(){
+//         $(this).fadeTo(0, .5);
+//     });
+// }
