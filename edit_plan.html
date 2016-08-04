@@ -18,19 +18,20 @@
 
 
         <form class = "edit_cal" action="demo_form.asp">
-            Description: <input class = "selection" id = "title" type="text" name="description"><br>
-            Color: <input class = "selection" type="color" name="color"><br>
-            Frequency: <select id = "frequency" class = "selection" name="frequency">
+            Summary: <input class = "text_box" id = "title" type="text" name="description"><br>
+            Description: <input class = "text_box" id = "description" type="text" name="description"><br>
+            Start Date and Time<input class = "text_box" id = "start_time" type="datetime" name="start_time"><br>
+            End Date and Time<input class = "text_box" id = "end_time" type="datetime" name="end_time"><br>
+            Frequency: <select id = "frequency" class = "text_box" name="frequency">
                 <option value="daily">Daily</option>
                 <option value="weekly">Weekly</option>
                 <option value="monthly">Monthly</option>
                 <option value="yearly">Yearly</option>
             </select><br>
+            Repeat Count<input class = "text_box" id = "rep_count" type = 'text'><br>
           <!-- Frequency: <input class = "selection" type="week" name="frequency"><br> -->
-          <input id = "save_button" type="submit" value="Save">
+          <a href = "http://localhost:8000/plan_cal.html"><button id = "save_button">Save</button></a>
         </form>
-
-
 
     </body>
 </html>

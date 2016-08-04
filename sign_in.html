@@ -8,6 +8,9 @@
         <script src="https://apis.google.com/js/platform.js" async defer></script>
             <script src = "imommy.js"></script>
             <meta name="google-signin-client_id" content="463068943114-9jvudf1fa16lljeuphr8oiak619elmmu.apps.googleusercontent.com">
+        <meta charset='utf-8' />
+        <script src="https://apis.google.com/js/platform.js"></script>
+        <script src="example.js" defer></script>
     </head>
     <body>
         <a href = "http://localhost:8000/imommy.html"><img class = "header" id = "back" src = "https://cdn1.iconfinder.com/data/icons/rcons-line-ios-3/32/back-512.png"/></a>
@@ -15,7 +18,15 @@
         <hr>
         <hr>
         <h2 class = "signin_headers">Welcome!</h2>
-        <div class="g-signin2"></div>
+
+
+        <button class = "signin" id="signin-button" style="display: none;">Sign In</button>
+        <button class = "signin" id="signout-button" style="display: none;">Sign Out</button>
+        <button class = "signin" id="load-calendar">Load Calendar</button>
+
+        <div id="content"></div>
+        <div id="output"></div>
+        <!-- <div class="g-signin2"></div> -->
         <h2 class = "signin_headers">Why use iMommy?<h2>
         <button class = "thick">About</button>
     </body>
