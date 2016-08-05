@@ -171,7 +171,7 @@ element.style{
 
 #adobe{
     width: 8%;
-    margin-right: 30%;
+    margin-left: 46%;
 }
 
 /*3Dcarousel from https://codepen.io/nopr/pen/rfBJx/*/
@@ -325,3 +325,7 @@ h4{
     margin-left: 90%;
 }    
 
+#about{
+    font-size: 40px;
+    line-height: 60px;
+}

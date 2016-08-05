@@ -143,9 +143,6 @@ function onSave(event){
     'end': {
       'dateTime': details.end_time,
     },
-    'recurrence': [
-      'RRULE:FREQ=DAILY;COUNT='+details.count
-    ],
     'reminders': {
       'useDefault': true,
       // 'overrides': [
