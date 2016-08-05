@@ -125,3 +125,203 @@ element.style{
 .text_box{
     font-size: 40px;
 }
+.format_time{
+    font-size: 40px;
+    margin: 2%;
+    line-height: 60px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+
+
+
+
+
+
+
+
+
+
+/*jenny*/
+
+#story{
+    margin-top: 40%;
+    margin-left: 80px;
+    margin-right: 80px;
+}
+
+#homepic{
+    visibility: visible;
+    width: 30px;
+    height: 30px;
+}
+
+#home {
+    visibility: hidden;
+    width: 40px;
+    height: 40px;
+    margin-left: 90%;
+} 
+
+#gwc{
+    width: 20%;
+    margin-left: 30%;
+}
+
+#adobe{
+    width: 8%;
+    margin-right: 30%;
+}
+
+/*3Dcarousel from https://codepen.io/nopr/pen/rfBJx/*/
+
+/*body {
+  padding: 70px 0;
+  font: 15px/20px Arial, sans-serif;
+}*/
+
+.container {
+  margin: 0 auto;
+  margin-top: 200px;
+  width: 250px;
+  height: 200px;
+  position: relative;
+  perspective: 1000px;
+}
+
+.carousel {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  transform-style: preserve-3d;
+  transition: transform 1s;
+}
+
+.item {
+  display: block;
+  position: absolute;
+  background: #000;
+  width: 250px;
+  height: 200px;
+  line-height: 200px;
+  font-size: 5em;
+  text-align: center;
+  color: #FFF;
+  opacity: 0.95;
+  border-radius: 10px;
+}
+
+.a {
+  transform: rotateY(0deg) translateZ(250px);
+  background: #ed1c24;
+}
+.b {
+  transform: rotateY(60deg) translateZ(250px);
+  background: #0072bc;
+}
+.c {
+  transform: rotateY(120deg) translateZ(250px);
+  background: #39b54a;
+}
+.d {
+  transform: rotateY(180deg) translateZ(250px);
+  background: #f26522;
+}
+.e {
+  transform: rotateY(240deg) translateZ(250px);
+  background: #630460;
+} 
+.f {
+  transform: rotateY(300deg) translateZ(250px);
+  background: #8c6239;
+}
+
+.next, .prev {
+  color: #444;
+  position: absolute;
+  top: 100px;
+  padding: 1em 2em;
+  margin-top: 80%;
+  cursor: pointer;
+  background: #CCC;
+  border-radius: 5px;
+  border-top: 1px solid #FFF;
+  box-shadow: 0 5px 0 #999;
+  transition: box-shadow 0.1s, top 0.1s;
+}
+.next:hover, .prev:hover { color: #000; }
+.next:active, .prev:active {
+  top: 104px;
+  box-shadow: 0 1px 0 #999;
+}
+.next { right: 5em; }
+.prev { left: 5em; }
+
+
+
+
+
+
+
+/*img{
+    visibility: visible;
+    width: 30px;
+    height: 30px;
+}
+*/
+.github{
+    margin-right: 90%;
+    visibility: hidden;
+}
+
+.wordpress{
+    margin-right: 90%;
+    visibility: hidden;
+}
+
+#home {
+    visibility: hidden;
+    width: 40px;
+    height: 40px;
+    margin-left: 90%;
+}    
+
+
+#info{
+    display: inline-block;
+    /*columns: 3;*/
+    margin-top: 200px;
+}
+
+
+
+/*p{
+    padding-bottom: 20px;
+}*/
+
+.videos {
+    column-count: 2;
+}
+
+.right h2{
+    padding-top: 12px;
+}
+
+h4{
+    color:#6600cc;
+}
+
+/*img{
+    visibility: visible;
+    width: 30px;
+    height: 30px;
+}*/
+
+#home{
+    visibility: hidden;
+    width: 40px;
+    height: 40px;
+    margin-left: 90%;
+}    
+

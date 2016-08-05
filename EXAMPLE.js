@@ -9,6 +9,7 @@ var calendarButton = document.getElementById('load-calendar');
 window.onload = function() {
   // checkSignedIn();
   gapi.load('client:auth2', initAuth);
+  $(#save_button).on('click', onSave)
 }
 
 function initAuth() { // Log user in
@@ -46,6 +47,30 @@ function updateSigninStatus(isSignedIn) { //Switch button showing depending on u
 //     window.location.href = 'http://localhost:8000/sign_in.html';
 //   }
 // }
+
+function renderButton() {
+  gapi.signin2.render('my-signin2', {
+    'scope': 'profile email https://www.googleapis.com/auth/calendar',
+    'width': 240,
+    'height': 50,
+    'longtitle': true,
+    'theme': 'dark',
+    'onsuccess': onSuccess,
+    'onfailure': onFailure
+  });
+}
+
+function onSuccess(googleUser) {
+  console.log('Logged in as: ' + googleUser.getBasicProfile().getName());
+  user = googleUser;
+  profile = googleUser.getBasicProfile;
+  console.log(profile.getName());
+  console.log(profile.getId());
+}
+
+function onFailure(error) {
+  console.log(error);
+}
 
 function signIn(event) { //trigger signin on click
   auth2.signIn();
@@ -139,3 +164,25 @@ request.execute(function(event) {
   appendPre('Event created: ' + event.htmlLink);
 });
 
+
+
+
+
+
+function onSave(event){
+  debugger;
+  // var summary = 
+}
+ // (when save is clicked)
+//make a variable called summary that stores the input of the summary text box
+//create an event on the event screen with certain color dot, and text summary var
+//make vars that store the other inputs
+//create a calendar event with summary: summary, default reminder, and start time: start_time, end time: end_time.
+
+
+
+//events page on load
+//make lists with summary 1, 2, 3, 4, description 1, 2, 3, 4, start time 1, 2, 3, 4, end time 1, 2, 3, 4
+//for each event
+//create a calendar event
+//with summary: list summary[i], description[i], start time[i], end time[i]

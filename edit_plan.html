@@ -6,8 +6,8 @@
         <link rel='stylesheet' href='style_mom.css'>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
         <script src="https://apis.google.com/js/platform.js" async defer></script>
-            <script src = "imommy.js"></script>
-            <meta name="google-signin-client_id" content="463068943114-9jvudf1fa16lljeuphr8oiak619elmmu.apps.googleusercontent.com">
+        <script src = "imommy.js"></script>
+        <meta name="google-signin-client_id" content="463068943114-9jvudf1fa16lljeuphr8oiak619elmmu.apps.googleusercontent.com">
     </head>
     <body>
         <a href = "plan_cal.html"><img class = "header" id = "back" src = "https://cdn1.iconfinder.com/data/icons/rcons-line-ios-3/32/back-512.png"/></a>
@@ -21,6 +21,8 @@
             Summary: <input class = "text_box" id = "title" type="text" name="description"><br>
             Description: <input class = "text_box" id = "description" type="text" name="description"><br>
             Start Date and Time<input class = "text_box" id = "start_time" type="datetime" name="start_time"><br>
+            <p class = "format_time">Format: year-month-day'T'hour:minute:second-hour:minute:second</p>
+            <p class = "format_time">Example: 2015-05-28T09:00:00-07:00</p><br>
             End Date and Time<input class = "text_box" id = "end_time" type="datetime" name="end_time"><br>
             Frequency: <select id = "frequency" class = "text_box" name="frequency">
                 <option value="daily">Daily</option>
@@ -30,8 +32,8 @@
             </select><br>
             Repeat Count<input class = "text_box" id = "rep_count" type = 'text'><br>
           <!-- Frequency: <input class = "selection" type="week" name="frequency"><br> -->
-          <a href = "http://localhost:8000/plan_cal.html"><button id = "save_button">Save</button></a>
         </form>
+          <a href = "http://localhost:8000/plan_cal.html"><button id = "save_button">Save</button></a>
 
     </body>
 </html>
