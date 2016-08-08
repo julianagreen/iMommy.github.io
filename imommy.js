@@ -32,10 +32,6 @@ function updateSigninStatus(isSignedIn) { //Switch current page depending on use
   }
 }
 
-function checkSignedIn(){
-
-}
-
 function renderButton() {
   gapi.signin2.render('my-signin2', {
     'scope': 'profile email https://www.googleapis.com/auth/calendar',
@@ -162,17 +158,6 @@ function appendPre(message) { // Append a pre element to the body containing the
   var textContent = document.createTextNode(message + '\n');
   pre.appendChild(textContent);
 }
-
-
-//events page on load
-//make lists with summary 1, 2, 3, 4, description 1, 2, 3, 4, start time 1, 2, 3, 4, end time 1, 2, 3, 4
-//for each event
-//create a calendar event
-//with summary: list summary[i], description[i], start time[i], end time[i]
-
-
-
-
 
 var carousel = $(".carousel"),
     currdeg  = 0;
