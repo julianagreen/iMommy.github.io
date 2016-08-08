@@ -1,15 +1,5 @@
-# iMommy.github.io
-college chore planner
+# Firebase: Build a Real Time Web Chat App Codelab - Start code
 
+This folder contains the starting code for the [Firebase: Build a Real Time Web Chat App Codelab](https://codelabs.developers.google.com/codelabs/firebase-web/).
 
-#Project Name
-iMommy
-
-##Technologies
-Web application for mobile. CSS, JavaScript, HTML, Googlee API.
-
-##MVP Features
-At least 3 tutorials with basic descriptions. Website gives you a response for any senario, but not very customized. Chores set to default time lengths that remind you via google calendar. Users sign in with their google account.
-
-##Stretch Goals
-Other users can respond to senarios posted by other users. Can customize time length for chores, can add new chores. No url bar.
+If you'd like to jump directly to the end and see the finished code head to the [web](../web) directory.
