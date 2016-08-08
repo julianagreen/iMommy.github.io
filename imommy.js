@@ -2,9 +2,6 @@ var auth2; // The Sign-In object.
 var SCOPE = 'profile email https://www.googleapis.com/auth/calendar';
 var CLIENT_ID = '463068943114-9jvudf1fa16lljeuphr8oiak619elmmu.apps.googleusercontent.com';
 var API_KEY = 'AIzaSyDSg6Rg0QO3PXM4eOnwgY2I6zMxNsz-URE';
-var signinButtonT
-var signoutButton 
-var calendarButton
 
 window.onload = function() {
   gapi.load('client:auth2', initAuth);
@@ -87,23 +84,24 @@ function addCalendarEvent(){
     details[list[i].id] = list[i].value;
   }
 
+  var month = $('#month');
+  var day = $('#day');
+  var end_month = $('#end_month');
+  var end_day = $('#end_day');
+
   var calendar_event = {
     'summary': details.title,
     'description': details.description,
     "start": {
-      "dateTime": "2016-06-03T10:00:00.000-07:00",
+      "dateTime": "2016-" + month + "-" + day + "T10:00:00-12:00:00",
       "timeZone": "America/Los_Angeles"
     },
     "end": {
-      "dateTime": "2016-06-03T10:25:00.000-07:00",
+      "dateTime": "2016-" + end_month + "-" + end_day + "T10:00:00-12:00:00",
       "timeZone": "America/Los_Angeles"
     },
     'reminders': {
-      'useDefault': true,
-      // 'overrides': [
-      //   {'method': 'email', 'minutes': 24 * 60},
-      //   {'method': 'popup', 'minutes': 10}
-      // ]
+      'useDefault': true
     }
   };
 
@@ -114,68 +112,57 @@ function addCalendarEvent(){
 
   request.execute(function(response) {
     debugger;
-    var events = response.items;
-
-    for (i = 0; i < events.length; i++) {
-      var event = events[i];
-      var when = event.start.dateTime;
-      if (!when) {
-        when = event.start.date;
-      }
-      // appendPre(event.summary + ' (' + when + ')');
-      // appendPre('Event created: ' + response.htmlLink);
-    }
   });
 }
 
-function listUpcomingEvents(calendarID){ // Print the summary and start datetime/date of the next ten events
-  var calendarId = calendarID;
-  var request_events = gapi.client.calendar.events.list({
-    'calendarId': calendarId,
-    'timeMin': (new Date()).toISOString(),
-    'singleEvents': true,
-    'showDeleted': false,
-    'maxResults': 3,
-    'orderBy': 'startTime'
-  });
+// function listUpcomingEvents(calendarID){ // Print the summary and start datetime/date of the next ten events
+//   var calendarId = calendarID;
+//   var request_events = gapi.client.calendar.events.list({
+//     'calendarId': calendarId,
+//     'timeMin': (new Date()).toISOString(),
+//     'singleEvents': true,
+//     'showDeleted': false,
+//     'maxResults': 3,
+//     'orderBy': 'startTime'
+//   });
 
-  request_events.execute(function(resp) {
-    var events = resp.items;
+//   request_events.execute(function(resp) {
+//     var events = resp.items;
 
-    for (i = 0; i < events.length; i++) {
-      var event = events[i];
-      var when = event.start.dateTime;
-      if (!when) {
-        when = event.start.date;
-      }
-      appendPre(event.summary + ' (' + when + ')');
-    }
-  })
-}
+//     for (i = 0; i < events.length; i++) {
+//       var event = events[i];
+//       var when = event.start.dateTime;
+//       if (!when) {
+//         when = event.start.date;
+//       }
+//       appendPre(event.summary + ' (' + when + ')');
+//     }
+//   })
+// }
 
-function appendPre(message) { // Append a pre element to the body containing the given message
-  var pre = document.getElementById('output');
-  var textContent = document.createTextNode(message + '\n');
-  pre.appendChild(textContent);
-}
+// function appendPre(message) { // Append a pre element to the body containing the given message
+//   var pre = document.getElementById('output');
+//   var textContent = document.createTextNode(message + '\n');
+//   pre.appendChild(textContent);
+// }
 
-var carousel = $(".carousel"),
-    currdeg  = 0;
+// var carousel = $(".carousel"),
+//     currdeg  = 0;
 
-$(".next").on("click", { d: "n" }, rotate);
-$(".prev").on("click", { d: "p" }, rotate);
+// $(".next").on("click", { d: "n" }, rotate);
+// $(".prev").on("click", { d: "p" }, rotate);
 
-function rotate(e){
-  if(e.data.d=="n"){
-    currdeg = currdeg - 60;
-  }
-  if(e.data.d=="p"){
-    currdeg = currdeg + 60;
-  }
-  carousel.css({
-    "-webkit-transform": "rotateY("+currdeg+"deg)",
-    "-moz-transform": "rotateY("+currdeg+"deg)",
-    "-o-transform": "rotateY("+currdeg+"deg)",
-    "transform": "rotateY("+currdeg+"deg)"
-  });
-}
+// function rotate(e){
+//   if(e.data.d=="n"){
+//     currdeg = currdeg - 60;
+//   }
+//   if(e.data.d=="p"){
+//     currdeg = currdeg + 60;
+//   }
+//   carousel.css({
+//     "-webkit-transform": "rotateY("+currdeg+"deg)",
+//     "-moz-transform": "rotateY("+currdeg+"deg)",
+//     "-o-transform": "rotateY("+currdeg+"deg)",
+//     "transform": "rotateY("+currdeg+"deg)"
+//   });
+// }
