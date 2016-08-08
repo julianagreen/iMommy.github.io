@@ -179,23 +179,11 @@ function onSave(event){
 
 
 
-var carousel = $(".carousel"),
-    currdeg  = 0;
+var tz = Math.round( ( panelSize / 2 ) / 
+  Math.tan( Math.PI / numberOfPanels ) );
 
-$(".next").on("click", { d: "n" }, rotate);
-$(".prev").on("click", { d: "p" }, rotate);
-
-function rotate(e){
-  if(e.data.d=="n"){
-    currdeg = currdeg - 60;
-  }
-  if(e.data.d=="p"){
-    currdeg = currdeg + 60;
-  }
-  carousel.css({
-    "-webkit-transform": "rotateY("+currdeg+"deg)",
-    "-moz-transform": "rotateY("+currdeg+"deg)",
-    "-o-transform": "rotateY("+currdeg+"deg)",
-    "transform": "rotateY("+currdeg+"deg)"
-  });
+function next(){
+  transform: translateZ( -288px ) rotateY( -160deg );
 }
+
+
