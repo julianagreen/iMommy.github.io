@@ -17,7 +17,7 @@ hr{
     width: 90%;
     height: 20%;
     font-size: 80px;
-    padding: 100px;
+    padding: 50px;
     color: rgb(100, 100, 100);
     border-radius: 40px;
 }
@@ -72,14 +72,15 @@ p{
     display: inline-block;
     margin-left: 10%
 }
-#login{
-    font-size: 50px;
-    padding: 10px;
-    margin-left: 5%;
-}
 .header_home{
     display: inline-block;
     margin-left: 30%;
+}
+#signout {
+  display: inline-block;
+  font-size: 50px;
+  padding: 10px;
+  margin-left: 5%;
 }
 .dots{
     position: absolute;
@@ -97,7 +98,7 @@ element.style{
     font-size: 100px;
 }
 .edit_cal{
-    font-size: 70px;
+    font-size: 50px;
     margin: 7%;
     line-height: 2em;
 }
@@ -118,12 +119,9 @@ element.style{
     margin-top: 10%;
     padding: 10px;
 }
-.signin{
-    font-size: 70px;
-    padding: 20px;
-}
 .text_box{
-    font-size: 40px;
+    font-size: 35px;
+    border: 1px solid black;
 }
 .format_time{
     font-size: 40px;
