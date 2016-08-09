@@ -109,17 +109,19 @@ element.style{
     width: 50%;
 }
 #save_button{
-    font-size: 60px;
+    font-size: 50px;
     margin-left: 45%;
-    margin-top: 10%;
-    padding: 10px;
+    margin-top: 4%;
+    padding: 20px;
+    border-radius: 20px;
 }
 .signin{
     font-size: 70px;
     padding: 20px;
 }
 .text_box{
-    font-size: 40px;
+    font-size: 30px;
+    border-style: solid;
 }
 .format_time{
     font-size: 40px;
@@ -127,6 +129,11 @@ element.style{
     line-height: 60px;
     margin-top: 0px;
     margin-bottom: 0px;
+}
+#note{
+  font-size: 40px;
+  margin: 20px;
+  margin-top: 80px;
 }
 
 
