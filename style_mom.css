@@ -241,13 +241,16 @@ element.style{
 
 /*contact page*/
 .logos{
-  width: 40px;
+  width: 120px;
   display: inline-block;
+  margin-right: 40px;
+  margin-top: 40px;
+  margin-left: 5%;
 }
-.gitlogo{
-  width: 20px;
+/*.git_logo{
+  width: 40px;
 }
-
+*/
 #info{
   /*display: block;*/
   text-align: center;
