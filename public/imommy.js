@@ -14,6 +14,7 @@ window.onload = function() {
   debugger;
   firebase.initializeApp(config);
   gapi.load('client:auth2', initAuth);
+  window.friendlyChat = new FriendlyChat();
 }
 
 function initAuth() { // Log user in

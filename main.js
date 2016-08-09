@@ -1,4 +1,3 @@
-
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
  *
@@ -16,8 +15,9 @@
  */
 'use strict';
 
-// Initializes iMommy.
-function iMommy() {
+// Initializes FriendlyChat.
+function FriendlyChat() {
+  debugger;
   this.checkSetup();
 
   // Shortcuts to DOM Elements.
@@ -30,14 +30,9 @@ function iMommy() {
   this.mediaCapture = document.getElementById('mediaCapture');
   this.userPic = document.getElementById('user-pic');
   this.userName = document.getElementById('user-name');
-  this.signInButton = document.getElementById('sign-in');
-  this.signOutButton = document.getElementById('sign-out');
-  this.signInSnackbar = document.getElementById('must-signin-snackbar');
 
   // Saves message on form submit.
   this.messageForm.addEventListener('submit', this.saveMessage.bind(this));
-  this.signOutButton.addEventListener('click', this.signOut.bind(this));
-  this.signInButton.addEventListener('click', this.signIn.bind(this));
 
   // Toggle for the button.
   var buttonTogglingHandler = this.toggleButton.bind(this);
@@ -49,32 +44,23 @@ function iMommy() {
     this.mediaCapture.click();
   }.bind(this));
   this.mediaCapture.addEventListener('change', this.saveImageMessage.bind(this));
-
+  this.populateProfileInfo();
   this.initFirebase();
 }
 
 // Sets up shortcuts to Firebase features and initiate firebase auth.
-iMommy.prototype.initFirebase = function() {
-  this.auth = firebase.auth();
+FriendlyChat.prototype.initFirebase = function() {
   this.database = firebase.database();
   this.storage = firebase.storage();
-  // Initiates Firebase auth and listen to auth state changes.
-  this.auth.onAuthStateChanged(this.onAuthStateChanged.bind(this));
-}
-  // TODO(DEVELOPER): Initialize Firebase.
 };
 
 // Loads chat messages history and listens for upcoming ones.
-iMommy.prototype.loadMessages = function() {
-   // Reference to the /messages/ database path.
+FriendlyChat.prototype.loadMessages = function() {
+  debugger;
+  // Reference to the /messages/ database path.
   this.messagesRef = this.database.ref('messages');
   // Make sure we remove all previous listeners.
   this.messagesRef.off();
-
- // // Reference to the /messages/ database path.
- //  this.messagesRef = this.database.ref('messages');
- //  // Make sure we remove all previous listeners.
- //  this.messagesRef.off();
 
   // Loads the last 12 messages and listen for new ones.
   var setMessage = function(data) {
@@ -83,35 +69,13 @@ iMommy.prototype.loadMessages = function() {
   }.bind(this);
   this.messagesRef.limitToLast(12).on('child_added', setMessage);
   this.messagesRef.limitToLast(12).on('child_changed', setMessage);
-};  // Loads the last 12 messages and listen for new ones.
-  var setMessage = function(data) {
-    var val = data.val();
-    this.displayMessage(data.key, val.name, val.text, val.photoUrl, val.imageUrl);
-  }.bind(this);
-  this.messagesRef.limitToLast(12).on('child_added', setMessage);
-  this.messagesRef.limitToLast(12).on('child_changed', setMessage);
-};
-  // TODO(DEVELOPER): Load and listens for new messages.
 };
 
 // Saves a new message on the Firebase DB.
-iMommy.prototype.saveMessage = function(e) {
+FriendlyChat.prototype.saveMessage = function(e) {
   e.preventDefault();
   // Check that the user entered a message and is signed in.
-  if (this.messageInput.value && this.checkSignedInWithMessage()) {
-    var currentUser = this.auth.currentUser;
-    // Add a new message entry to the Firebase Database.
-    this.messagesRef.push({
-      name: currentUser.displayName,
-      text: this.messageInput.value,
-      photoUrl: currentUser.photoURL || '/images/profile_placeholder.png'
-    }).then(function() {
-      // Clear message text field and SEND button state.
-     iMommy.resetMaterialTextfield(this.messageInput);
-      this.toggleButton();
-    }.bind(this)).catch(function(error) {
-      console.error('Error writing new message to Firebase Database', error);
-    });
+  if (this.messageInput.value && isSignedIn) { //<<isSignedIn checks google auth for user object
 
     // TODO(DEVELOPER): push new message to Firebase.
 
@@ -119,46 +83,15 @@ iMommy.prototype.saveMessage = function(e) {
 };
 
 // Sets the URL of the given img element with the URL of the image stored in Firebase Storage.
-iMommy.prototype.setImageUrl = function(imageUri, imgElement) {
-   // If the image is a Firebase Storage URI we fetch the URL.
-  if (imageUri.startsWith('gs://')) {
-    imgElement.src = iMommy.LOADING_IMAGE_URL; // Display a loading image first.
-    this.storage.refFromURL(imageUri).getMetadata().then(function(metadata) {
-      imgElement.src = metadata.downloadURLs[0];
-    });
-  } else {
+FriendlyChat.prototype.setImageUrl = function(imageUri, imgElement) {
   imgElement.src = imageUri;
-
-}
 
   // TODO(DEVELOPER): If image is on Firebase Storage, fetch image URL and set img element's src.
 };
 
 // Saves a new message containing an image URI in Firebase.
 // This first saves the image in Firebase storage.
-iMommy.prototype.saveImageMessage = function(event) {
-  // We add a message with a loading icon that will get updated with the shared image.
-    var currentUser = this.auth.currentUser;
-    this.messagesRef.push({
-      name: currentUser.displayName,
-      imageUrl: iMommy.LOADING_IMAGE_URL,
-      photoUrl: currentUser.photoURL || '/images/profile_placeholder.png'
-    }).then(function(data) {
-
-      // Upload the image to Firebase Storage.
-      var uploadTask = this.storage.ref(currentUser.uid + '/' + Date.now() + '/' + file.name)
-          .put(file, {'contentType': file.type});
-      // Listen for upload completion.
-      uploadTask.on('state_changed', null, function(error) {
-        console.error('There was an error uploading a file to Firebase Storage:', error);
-      }, function() {
-
-        // Get the file's Storage URI and update the chat message placeholder.
-        var filePath = uploadTask.snapshot.metadata.fullPath;
-        data.update({imageUrl: this.storage.ref(filePath).toString()});
-      }.bind(this));
-    }.bind(this));
-  }
+FriendlyChat.prototype.saveImageMessage = function(event) {
   var file = event.target.files[0];
 
   // Clear the selection in the file picker input.
@@ -173,86 +106,30 @@ iMommy.prototype.saveImageMessage = function(event) {
     this.signInSnackbar.MaterialSnackbar.showSnackbar(data);
     return;
   }
-  // Check if the user is signed-in
-  if (this.checkSignedInWithMessage()) {
-
-    // TODO(DEVELOPER): Upload image to Firebase storage and add message.
-
-  }
-};
-
-// Signs-in iMommy.
-iMommy.prototype.signIn = function(googleUser) {
-   // Sign in Firebase using popup auth and Google as the identity provider.
-  var provider = new firebase.auth.GoogleAuthProvider();
-  this.auth.signInWithPopup(provider);
-};
-  // TODO(DEVELOPER): Sign in Firebase with credential from the Google user.
-};
-
-  // Signs-out of iMommy.
-iMommy.prototype.signOut = function() {
-  // Sign out of Firebase.
-  this.auth.signOut();
-
-  // TODO(DEVELOPER): Sign out of Firebase.
+  
+  // TODO(DEVELOPER): Upload image to Firebase storage and add message.
 };
 
 // Triggers when the auth state change for instance when the user signs-in or signs-out.
-iMommy.prototype.onAuthStateChanged = function(user) {
-  if (user) { // User is signed in!
-    // Get profile pic and user's name from the Firebase user object.
-    var profilePicUrl = user.photoURL;   // TODO(DEVELOPER): Get profile pic.
-    var userName = user.displayName;        // TODO(DEVELOPER): Get user's name.
-
-    // Set the user's profile pic and name.
+FriendlyChat.prototype.populateProfileInfo = function() {
+    // Get profile pic and user's name from google auth object
     this.userPic.style.backgroundImage = 'url(' + profilePicUrl + ')';
     this.userName.textContent = userName;
-
-    // Show user's profile and sign-out button.
     this.userName.removeAttribute('hidden');
     this.userPic.removeAttribute('hidden');
-    this.signOutButton.removeAttribute('hidden');
-
-    // Hide sign-in button.
-    this.signInButton.setAttribute('hidden', 'true');
 
     // We load currently existing chant messages.
     this.loadMessages();
-  } else { // User is signed out!
-    // Hide user's profile and sign-out button.
-    this.userName.setAttribute('hidden', 'true');
-    this.userPic.setAttribute('hidden', 'true');
-    this.signOutButton.setAttribute('hidden', 'true');
-
-    // Show sign-in button.
-    this.signInButton.removeAttribute('hidden');
-  }
-};
-
-// Returns true if user is signed-in. Otherwise false and displays a message.
-iMommy.prototype.checkSignedInWithMessage = function() {
-   if (this.auth.currentUser) {
-    return true;
-  /* TODO(DEVELOPER): Check if user is signed-in Firebase. */
-
-  // Display a message to the user using a Toast.
-  var data = {
-    message: 'You must sign-in first',
-    timeout: 2000
-  };
-  this.signInSnackbar.MaterialSnackbar.showSnackbar(data);
-  return false;
 };
 
 // Resets the given MaterialTextField.
-iMommy.resetMaterialTextfield = function(element) {
+FriendlyChat.resetMaterialTextfield = function(element) {
   element.value = '';
   element.parentNode.MaterialTextfield.boundUpdateClassesHandler();
 };
 
 // Template for messages.
-iMommy.MESSAGE_TEMPLATE =
+FriendlyChat.MESSAGE_TEMPLATE =
     '<div class="message-container">' +
       '<div class="spacing"><div class="pic"></div></div>' +
       '<div class="message"></div>' +
@@ -260,15 +137,15 @@ iMommy.MESSAGE_TEMPLATE =
     '</div>';
 
 // A loading image URL.
-iMommy.LOADING_IMAGE_URL = 'https://www.google.com/images/spin-32.gif';
+FriendlyChat.LOADING_IMAGE_URL = 'https://www.google.com/images/spin-32.gif';
 
 // Displays a Message in the UI.
-iMommy.prototype.displayMessage = function(key, name, text, picUrl, imageUri) {
+FriendlyChat.prototype.displayMessage = function(key, name, text, picUrl, imageUri) {
   var div = document.getElementById(key);
   // If an element for that message does not exists yet we create it.
   if (!div) {
     var container = document.createElement('div');
-    container.innerHTML = iMommy.MESSAGE_TEMPLATE;
+    container.innerHTML = FriendlyChat.MESSAGE_TEMPLATE;
     div = container.firstChild;
     div.setAttribute('id', key);
     this.messageList.appendChild(div);
@@ -299,7 +176,7 @@ iMommy.prototype.displayMessage = function(key, name, text, picUrl, imageUri) {
 
 // Enables or disables the submit button depending on the values of the input
 // fields.
-iMommy.prototype.toggleButton = function() {
+FriendlyChat.prototype.toggleButton = function() {
   if (this.messageInput.value) {
     this.submitButton.removeAttribute('disabled');
   } else {
@@ -308,7 +185,7 @@ iMommy.prototype.toggleButton = function() {
 };
 
 // Checks that the Firebase SDK has been correctly setup and configured.
-iMommy.prototype.checkSetup = function() {
+FriendlyChat.prototype.checkSetup = function() {
   if (!window.firebase || !(firebase.app instanceof Function) || !window.config) {
     window.alert('You have not configured and imported the Firebase SDK. ' +
         'Make sure you go through the codelab setup instructions.');
@@ -323,5 +200,6 @@ iMommy.prototype.checkSetup = function() {
 };
 
 window.onload = function() {
-  window.iMommy = new iMommy();
+  debugger;
+  window.friendlyChat = new FriendlyChat();
 };

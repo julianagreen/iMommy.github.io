@@ -1,7 +1,0 @@
-6zrsfakkt c {
-  "name": "Friendly Chat",
-  "short_name": "Friendly Chat",
-  "start_url": "/index.html",
-  "display": "standalone",
-  "orientation": "portrait"
-}
