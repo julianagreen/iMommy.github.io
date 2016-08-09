@@ -42,6 +42,7 @@ hr{
   border-radius: 50px;
   padding: 15px;
   margin-top: 90px;
+  background-color: rgb(190, 190, 190);
 }
 #tutorials{
     background-color: lightblue;
@@ -288,18 +289,23 @@ element.style{
 
 
 /*tutorialspage*/
-.videos {
-  column-count: 2;
+.tutorial_title{
+  margin-left: 5%;
+  font-size: 40px;
 }
-
-.right {
-  margin-right: 100px;
+.how_to_vid{
+  margin-left: 5%;
+  width: 90%;
+  /*height: 65%;*/
 }
-
-.left{
-  margin-left: 100px;
+.vid_description{
+  font-size: 30px;
+  margin-left: 5%;
+  margin-right: 5%;
 }
 
 h4{
-    color:#6600cc;
+  color:#6600cc;
+  margin-left: 5%;
+  font-size: 30px;
 }
