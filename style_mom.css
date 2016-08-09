@@ -300,11 +300,12 @@ element.style{
   margin-left: 5%;
   font-size: 40px;
 }
+
 .how_to_vid{
   margin-left: 5%;
-  width: 90%;
-  /*height: 65%;*/
+  width:90%;
 }
+
 .vid_description{
   font-size: 30px;
   margin-left: 5%;
