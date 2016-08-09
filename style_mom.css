@@ -9,9 +9,6 @@ h1{
     font-size: 70px;
     text-align: center;
 }
-#signin{
-  background-color: rgb(134, 194, 107);
-}
 hr{
     margin: 15px;
 }
@@ -20,7 +17,7 @@ hr{
     width: 90%;
     height: 20%;
     font-size: 80px;
-    padding: 50px;
+    padding: 100px;
     color: rgb(100, 100, 100);
     border-radius: 40px;
 }
@@ -36,11 +33,6 @@ hr{
     text-align: left;
     background-color: lightgrey;
     border-radius: 20px;
-}
-#note{
-  margin: 20px;
-  margin-top: 30px;
-  font-size: 40px;
 }
 #tutorials{
     background-color: lightblue;
@@ -80,16 +72,14 @@ p{
     display: inline-block;
     margin-left: 10%
 }
+#login{
+    font-size: 50px;
+    padding: 10px;
+    margin-left: 5%;
+}
 .header_home{
     display: inline-block;
     margin-left: 30%;
-}
-#signout {
-  display: inline-block;
-  font-size: 50px;
-  padding: 10px;
-  margin-left: 4%;
-  border-radius: 15px;
 }
 .dots{
     position: absolute;
@@ -116,21 +106,24 @@ element.style{
     width: 70px;
 }
 #frequency{
-    font-size: 40px;
+    font-size: 35px;
 }
 #title{
     font-size: 40px;
     width: 50%;
 }
 #save_button{
-    font-size: 50px;
-    margin-left: 42%;
-    margin-top: 7;
+    font-size: 60px;
+    margin-left: 45%;
+    margin-top: 10%;
+    padding: 10px;
+}
+.signin{
+    font-size: 70px;
     padding: 20px;
 }
 .text_box{
-    font-size: 35px;
-    border: 1px solid black;
+    font-size: 40px;
 }
 .format_time{
     font-size: 40px;
@@ -152,45 +145,26 @@ element.style{
 
 /*jenny*/
 
-#story{
-    margin-top: 40%;
-    margin-left: 80px;
-    margin-right: 80px;
+/*about us page*/
+#about{
+    font-size: 30px;
+    line-height: 60px;
+    margin: 3%;
+    margin-top: 15%;
 }
 
-#homepic{
-    visibility: visible;
-    width: 30px;
-    height: 30px;
+.sponsors{
+  width:10%;
+  display: block;
+  margin:auto;
 }
 
-#home {
-    visibility: hidden;
-    width: 40px;
-    height: 40px;
-    margin-left: 90%;
-} 
+/*first not working;3Dcarousel from https://codepen.io/nopr/pen/rfBJx/*/
+/*current;https://desandro.github.io/3dtransforms/docs/carousel.html*/
 
-#gwc{
-    width: 20%;
-    margin-left: 30%;
-}
-
-#adobe{
-    width: 8%;
-    margin-left: 46%;
-}
-
-/*3Dcarousel from https://codepen.io/nopr/pen/rfBJx/*/
-
-/*body {
-  padding: 70px 0;
-  font: 15px/20px Arial, sans-serif;
-}*/
 
 .container {
   margin: 0 auto;
-  margin-top: 200px;
   width: 250px;
   height: 200px;
   position: relative;
@@ -249,7 +223,6 @@ element.style{
   position: absolute;
   top: 100px;
   padding: 1em 2em;
-  margin-top: 80%;
   cursor: pointer;
   background: #CCC;
   border-radius: 5px;
@@ -257,6 +230,7 @@ element.style{
   box-shadow: 0 5px 0 #999;
   transition: box-shadow 0.1s, top 0.1s;
 }
+
 .next:hover, .prev:hover { color: #000; }
 .next:active, .prev:active {
   top: 104px;
@@ -267,72 +241,43 @@ element.style{
 
 
 
-
-
-
-
-/*img{
-    visibility: visible;
-    width: 30px;
-    height: 30px;
+/*contact page*/
+.logos{
+  width:50px;
+  display: inline-block;
 }
-*/
-.github{
-    margin-right: 90%;
-    visibility: hidden;
-}
-
-.wordpress{
-    margin-right: 90%;
-    visibility: hidden;
-}
-
-#home {
-    visibility: hidden;
-    width: 40px;
-    height: 40px;
-    margin-left: 90%;
-}    
-
 
 #info{
-    display: inline-block;
-    /*columns: 3;*/
-    margin-top: 200px;
+  display: block;
+  text-align: center;
 }
 
+.name{
+  text-align: center;
+}
 
+.email{
+  font-size: 20px; 
+  text-align: center; 
+}
 
-/*p{
-    padding-bottom: 20px;
-}*/
+/*tutorialspage*/
 
 .videos {
-    column-count: 2;
+  column-count: 2;
 }
 
-.right h2{
-    padding-top: 12px;
+.right {
+  margin-right: 100px;
+}
+
+.left{
+  margin-left: 100px;
 }
 
 h4{
     color:#6600cc;
 }
 
-/*img{
-    visibility: visible;
-    width: 30px;
-    height: 30px;
-}*/
+ 
 
-#home{
-    visibility: hidden;
-    width: 40px;
-    height: 40px;
-    margin-left: 90%;
-}    
-
-#about{
-    font-size: 40px;
-    line-height: 60px;
-}
