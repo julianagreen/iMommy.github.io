@@ -159,10 +159,10 @@ element.style{
 
 /*about us page*/
 #about{
-    font-size: 30px;
+    font-size: 40px;
     line-height: 60px;
     margin: 3%;
-    margin-top: 15%;
+    margin-top: 20%;
 }
 
 .sponsors{
@@ -233,8 +233,10 @@ element.style{
 .next, .prev {
   color: #444;
   position: absolute;
+  margin-top: 55%;
   top: 100px;
-  padding: 1em 2em;
+  font-size: 30px;
+  padding: .7em 1.4em;
   cursor: pointer;
   background: #CCC;
   border-radius: 5px;
