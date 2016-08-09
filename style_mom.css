@@ -162,13 +162,14 @@ element.style{
     font-size: 40px;
     line-height: 60px;
     margin: 3%;
-    margin-top: 20%;
+    margin-top: 25%;
 }
 
 .sponsors{
   width:10%;
   display: block;
   margin:auto;
+  margin-bottom: 50px;
 }
 
 /*first not working;3Dcarousel from https://codepen.io/nopr/pen/rfBJx/*/
@@ -184,6 +185,7 @@ element.style{
 }
 
 .carousel {
+  margin-top: 20px;
   height: 100%;
   width: 100%;
   position: absolute;
@@ -233,7 +235,7 @@ element.style{
 .next, .prev {
   color: #444;
   position: absolute;
-  margin-top: 55%;
+  margin-top: 58%;
   top: 100px;
   font-size: 30px;
   padding: .7em 1.4em;
