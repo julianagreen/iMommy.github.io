@@ -1,0 +1,7 @@
+{
+  "name": "iMommy",
+  "short_name": "iMommy",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "orientation": "portrait"
+}
