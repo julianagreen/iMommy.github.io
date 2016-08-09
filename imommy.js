@@ -1,5 +1,5 @@
 var auth2; // The Sign-In object.
-var SCOPE = 'profile email https://www.googleapis.com/auth/calendar';
+var SCOPE = 'https://www.googleapis.com/auth/calendar';
 var CLIENT_ID = '463068943114-9jvudf1fa16lljeuphr8oiak619elmmu.apps.googleusercontent.com';
 var API_KEY = 'AIzaSyDSg6Rg0QO3PXM4eOnwgY2I6zMxNsz-URE';
 
@@ -65,17 +65,17 @@ function loadCalendarApi() { //Load Google Calendar client library
   gapi.client.load('calendar', 'v3', listCalendars);
 }
 
-function listCalendars() { // List all calendars
-  var request = gapi.client.calendar.calendarList.list();
+// function listCalendars() { // List all calendars
+//   var request = gapi.client.calendar.calendarList.list();
 
-  request.execute(function(resp) {
-    var calendars = resp.items;
-    appendPre('Check Console');
-    for (i=0;i<calendars.length;i++) {
-      listUpcomingEvents(calendars[i]['id']);
-    }
-  });
-}
+//   request.execute(function(resp) {
+//     var calendars = resp.items;
+//     appendPre('Check Console');
+//     for (i=0;i<calendars.length;i++) {
+//       listUpcomingEvents(calendars[i]['id']);
+//     }
+//   });
+// }
 
 function addCalendarEvent(){
     var details = {}
@@ -105,13 +105,15 @@ function addCalendarEvent(){
     }
   };
 
+  // debugger;
   var request = gapi.client.calendar.events.insert({
     'calendarId': 'primary',
     'resource': calendar_event
   });
 
   request.execute(function(response) {
-    debugger;
+    // debugger;
+    alert(details.title + "was successfully added to your calendar");
   });
 }
 
