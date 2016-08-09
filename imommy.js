@@ -106,14 +106,12 @@ function addCalendarEvent(){
     }
   };
 
-  // debugger;
   var request = gapi.client.calendar.events.insert({
     'calendarId': 'primary',
     'resource': calendar_event
   });
 
   request.execute(function(response) {
-    // debugger;
     alert(details.title + "was successfully added to your calendar");
   });
 }

@@ -129,7 +129,10 @@ element.style{
     padding: 20px;
 }
 .text_box{
-    font-size: 30px;
+    font-size: 40px;
+    width: 370px;
+    height: 50px;
+    padding: 5px;
     border-style: solid;
 }
 .format_time{
