@@ -14,10 +14,9 @@ college chore planner
  ##Stretch Goals
  Other users can respond to senarios posted by other users. Can customize time length for chores, can add new chores. No url bar.
 
-##Problem
- We are aiming to eliminate the struggles of not having a parent around especailly when entering audlthood. 
+ ##Problem
+ Not having a parent around brings on a new level of responsibility that young adults have trouble taking on, especially when entering college. 
 
 
-
-##Solution
-By creating a mobile web application we can ease the transition to adulthood. 
+ ##Solution
+ By creating a mobile web application we can ease the transition to adulthood. 
