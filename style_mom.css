@@ -73,12 +73,6 @@ p{
     opacity: .7;
     margin-top: 3%;
 }
-.chat_back{
-  position: absolute;
-  left: 450px;
-  bottom: 800px;
-  z-index: 100;
-}
 .header{
     display: inline-block;
     margin-left: 10%;
@@ -322,4 +316,24 @@ h4{
   color:#6600cc;
   margin-left: 5%;
   font-size: 30px;
+}
+/*
+
+
+/*camille*/
+#firechat-wrapper {
+  height: 1100px;
+  max-width: 800px;
+  /*font-size: 40px;*/
+  padding: 10px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  margin: 50px auto;
+  text-align: center;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  /*-webkit-box-shadow: 0 5px 25px #666;
+  -moz-box-shadow: 0 5px 25px #666;
+  box-shadow: 0 5px 25px #666;*/
 }
